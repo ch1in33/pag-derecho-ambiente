@@ -1,0 +1,833 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lex Ambiental | Abogados Especialistas en Derecho Medioambiental</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-dark: #1a3a2e;
+            --primary-green: #2d5f4d;
+            --gold-accent: #b8934f;
+            --text-dark: #2c3e50;
+            --text-light: #6c757d;
+            --bg-cream: #faf8f5;
+            --white: #ffffff;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Lato', sans-serif;
+            color: var(--text-dark);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+        
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(26, 58, 46, 0.98);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1.2rem 5%;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+        }
+        
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: white;
+        }
+        
+        .logo span {
+            color: var(--gold-accent);
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 400;
+            font-size: 0.95rem;
+            letter-spacing: 0.5px;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--gold-accent);
+        }
+        
+        .cta-nav {
+            background: var(--gold-accent);
+            padding: 0.8rem 2rem;
+            border-radius: 4px;
+            color: white;
+            text-decoration: none;
+            font-weight: 700;
+            transition: all 0.3s;
+            font-size: 0.9rem;
+            letter-spacing: 0.5px;
+        }
+        
+        .cta-nav:hover {
+            background: #a17d3c;
+            transform: translateY(-2px);
+        }
+        
+        /* Hero Section */
+        .hero {
+            margin-top: 80px;
+            min-height: 85vh;
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-green) 100%);
+            color: white;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 50%;
+            height: 100%;
+            background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><rect width="1" height="100" fill="rgba(255,255,255,0.05)"/></svg>') repeat;
+            opacity: 0.5;
+        }
+        
+        .hero-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 4rem 5%;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .hero-text h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.8rem;
+            font-weight: 700;
+            line-height: 1.15;
+            margin-bottom: 1.5rem;
+            animation: fadeInUp 1s ease-out;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .hero-text .subtitle {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+            font-weight: 300;
+            animation: fadeInUp 1s ease-out 0.2s both;
+        }
+        
+        .hero-text p {
+            font-size: 1.1rem;
+            margin-bottom: 2.5rem;
+            opacity: 0.9;
+            line-height: 1.9;
+            animation: fadeInUp 1s ease-out 0.4s both;
+        }
+        
+        .credentials {
+            display: flex;
+            gap: 3rem;
+            margin-bottom: 2.5rem;
+            animation: fadeInUp 1s ease-out 0.6s both;
+        }
+        
+        .credential-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .credential-icon {
+            font-size: 2.5rem;
+        }
+        
+        .credential-text {
+            font-size: 0.9rem;
+            opacity: 0.85;
+        }
+        
+        .credential-text strong {
+            display: block;
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--gold-accent);
+        }
+        
+        /* Services Section */
+        .services {
+            padding: 7rem 5%;
+            background: white;
+        }
+        
+        .section-header {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 5rem;
+        }
+        
+        .section-label {
+            color: var(--gold-accent);
+            font-weight: 700;
+            font-size: 0.85rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+        
+        .section-header h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.2rem;
+            color: var(--primary-dark);
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+        }
+        
+        .section-header p {
+            font-size: 1.15rem;
+            color: var(--text-light);
+            line-height: 1.8;
+        }
+        
+        .services-grid {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 3rem;
+        }
+        
+        .service-card {
+            background: var(--bg-cream);
+            padding: 3.5rem 3rem;
+            border-radius: 8px;
+            border-top: 4px solid var(--gold-accent);
+            transition: all 0.4s;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+        }
+        
+        .service-icon {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            display: block;
+        }
+        
+        .service-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            color: var(--primary-dark);
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+        
+        .service-card p {
+            color: var(--text-light);
+            line-height: 1.9;
+            font-size: 1.05rem;
+        }
+        
+        /* Legal Framework */
+        .legal-framework {
+            padding: 7rem 5%;
+            background: var(--primary-dark);
+            color: white;
+        }
+        
+        .framework-grid {
+            max-width: 1400px;
+            margin: 3rem auto 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+        }
+        
+        .framework-card {
+            background: rgba(255,255,255,0.08);
+            backdrop-filter: blur(10px);
+            padding: 3rem 2.5rem;
+            border-radius: 8px;
+            border: 1px solid rgba(255,255,255,0.1);
+            transition: all 0.4s;
+        }
+        
+        .framework-card:hover {
+            background: rgba(255,255,255,0.12);
+            border-color: var(--gold-accent);
+        }
+        
+        .framework-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            display: block;
+        }
+        
+        .framework-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            margin-bottom: 1rem;
+            color: var(--gold-accent);
+        }
+        
+        .framework-card p {
+            opacity: 0.9;
+            line-height: 1.9;
+        }
+        
+        /* Cases Section */
+        .cases {
+            padding: 7rem 5%;
+            background: var(--bg-cream);
+        }
+        
+        .cases-grid {
+            max-width: 1400px;
+            margin: 3rem auto 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 3rem;
+        }
+        
+        .case-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            transition: all 0.4s;
+        }
+        
+        .case-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+        }
+        
+        .case-image {
+            height: 250px;
+            background: linear-gradient(135deg, var(--primary-green), var(--primary-dark));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 5rem;
+            color: white;
+            position: relative;
+        }
+        
+        .case-image::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at center, transparent 30%, rgba(0,0,0,0.3));
+        }
+        
+        .case-content {
+            padding: 2.5rem;
+        }
+        
+        .case-tag {
+            display: inline-block;
+            background: var(--gold-accent);
+            color: white;
+            padding: 0.4rem 1rem;
+            border-radius: 3px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            margin-bottom: 1rem;
+        }
+        
+        .case-content h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.7rem;
+            color: var(--primary-dark);
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+        
+        .case-content p {
+            color: var(--text-light);
+            line-height: 1.9;
+            margin-bottom: 1.5rem;
+        }
+        
+        .case-stats {
+            display: flex;
+            gap: 2rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid #e0e0e0;
+        }
+        
+        .case-stat {
+            text-align: center;
+        }
+        
+        .case-stat strong {
+            display: block;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            color: var(--primary-green);
+            font-weight: 700;
+        }
+        
+        .case-stat span {
+            font-size: 0.85rem;
+            color: var(--text-light);
+        }
+
+        
+        /* Footer */
+        footer {
+            background: #1a1a1a;
+            color: white;
+            padding: 5rem 5% 2rem;
+        }
+        
+        .footer-grid {
+            max-width: 1400px;
+            margin: 0 auto 3rem;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 4rem;
+        }
+        
+        .footer-about h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: var(--gold-accent);
+        }
+        
+        .footer-about p {
+            opacity: 0.85;
+            line-height: 1.9;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-credentials {
+            display: flex;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        .credential-badge {
+            padding: 0.5rem 1rem;
+            background: rgba(255,255,255,0.1);
+            border-radius: 4px;
+            font-size: 0.85rem;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+        
+        .footer-links h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .footer-links ul {
+            list-style: none;
+        }
+        
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            opacity: 0.85;
+            transition: all 0.3s;
+            display: block;
+            margin-bottom: 0.8rem;
+            font-size: 0.95rem;
+        }
+        
+        .footer-links a:hover {
+            opacity: 1;
+            color: var(--gold-accent);
+            padding-left: 5px;
+        }
+        
+        .footer-contact {
+            margin-top: 1rem;
+        }
+        
+        .footer-contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            opacity: 0.85;
+        }
+        
+        .footer-contact-item span:first-child {
+            font-size: 1.2rem;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 3rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            opacity: 0.7;
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .hero-text h1 {
+                font-size: 3rem;
+            }
+            
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hero-text h1 {
+                font-size: 2.3rem;
+            }
+            
+            .credentials {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+            
+            .section-header h2 {
+                font-size: 2.2rem;
+            }
+            
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .services-grid,
+            .cases-grid,
+            .testimonial-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <div class="logo">Lex <span>Ambiental</span></div>
+            <ul class="nav-links">
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#servicios">Servicios</a></li>
+                <li><a href="#casos">Casos</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+            <a href="#contacto" class="cta-nav">Contáctanos</a>
+        </div>
+    </nav>
+    
+    <section id="inicio" class="hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1>Defendiendo el Futuro del Medio Ambiente con Excelencia Jurídica</h1>
+                <div class="subtitle">Abogados Especialistas en Derecho Medioambiental</div>
+                <p>Bufete líder en litigios ambientales, cumplimiento normativo y asesoría jurídica especializada. Protegemos los derechos constitucionales al medio ambiente sano y representamos a comunidades, empresas y organizaciones en todo Panamá.</p>
+                
+                <div class="credentials">
+                    <div class="credential-item">
+                        <span class="credential-icon">⚖️</span>
+                        <div class="credential-text">
+                            <strong>25+ Años</strong>
+                            De Experiencia Legal
+                        </div>
+                    </div>
+                    <div class="credential-item">
+                        <span class="credential-icon">🏆</span>
+                        <div class="credential-text">
+                            <strong>150+</strong>
+                            Casos Ganados
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="servicios" class="services">
+        <div class="section-header">
+            <div class="section-label">Áreas de Práctica</div>
+            <h2>Servicios Jurídicos Especializados</h2>
+            <p>Ofrecemos representación legal integral en todas las áreas del derecho medioambiental, con un enfoque en resultados concretos y protección de derechos fundamentales</p>
+        </div>
+        
+        <div class="services-grid">
+            <div class="service-card">
+                <span class="service-icon">📋</span>
+                <h3>Litigios Ambientales</h3>
+                <p>Representación en casos de violaciones a la legislación ambiental, incluyendo contaminación, deforestación ilegal y daños a ecosistemas. Experiencia comprobada en tribunales nacionales e internacionales.</p>
+            </div>
+            
+            <div class="service-card">
+                <span class="service-icon">🏢</span>
+                <h3>Cumplimiento Normativo</h3>
+                <p>Asesoría jurídica para empresas en cumplimiento de normativas ambientales, obtención de permisos, licencias y auditorías legales. Prevención de sanciones y responsabilidad corporativa.</p>
+            </div>
+            
+            <div class="service-card">
+                <span class="service-icon">🌳</span>
+                <h3>Conservación y Biodiversidad</h3>
+                <p>Defensa legal de áreas protegidas, especies en peligro y ecosistemas críticos. Acciones legales contra proyectos que amenacen la biodiversidad nacional.</p>
+            </div>
+            
+            <div class="service-card">
+                <span class="service-icon">💧</span>
+                <h3>Recursos Hídricos</h3>
+                <p>Representación en casos de contaminación de fuentes de agua, gestión de cuencas hidrográficas y protección del derecho al agua potable. Litigios contra industrias contaminantes.</p>
+            </div>
+            
+            <div class="service-card">
+                <span class="service-icon">⚡</span>
+                <h3>Energía y Cambio Climático</h3>
+                <p>Asesoría en proyectos de energía renovable, litigios climáticos y cumplimiento de compromisos internacionales. Representación de comunidades afectadas por megaproyectos.</p>
+            </div>
+            
+            <div class="service-card">
+                <span class="service-icon">👥</span>
+                <h3>Derechos Comunitarios</h3>
+                <p>Defensa de comunidades indígenas y locales frente a proyectos extractivos, protección de territorios ancestrales y consulta previa, libre e informada.</p>
+            </div>
+        </div>
+    </section>
+    
+    <section class="legal-framework">
+        <div class="section-header">
+            <div class="section-label" style="color: var(--gold-accent);">Marco Legal</div>
+            <h2 style="color: white;">Fundamentos Constitucionales y Legales</h2>
+            <p style="color: white; opacity: 0.9;">Nuestro trabajo se fundamenta en la legislación nacional e internacional de protección ambiental</p>
+        </div>
+        
+        <div class="framework-grid">
+            <div class="framework-card">
+                <span class="framework-icon">📜</span>
+                <h3>Constitución Política de Panamá</h3>
+                <p>Artículo 118: Derecho fundamental a un ambiente sano. Artículo 119: Obligación del Estado de proteger el medio ambiente. Base constitucional de nuestra práctica legal.</p>
+            </div>
+            
+            <div class="framework-card">
+                <span class="framework-icon">🌍</span>
+                <h3>Tratados Internacionales</h3>
+                <p>Convención de Ramsar, Convenio sobre Diversidad Biológica, Acuerdo de París. Aplicación de estándares internacionales en casos nacionales.</p>
+            </div>
+            
+            <div class="framework-card">
+                <span class="framework-icon">⚖️</span>
+                <h3>Legislación Nacional</h3>
+                <p>Ley General de Ambiente, Código de Recursos Naturales, normativas sectoriales. Experiencia en aplicación e interpretación de toda la legislación ambiental vigente.</p>
+            </div>
+            
+            <div class="framework-card">
+                <span class="framework-icon">🏛️</span>
+                <h3>Jurisprudencia</h3>
+                <p>Precedentes de la Corte Suprema de Justicia y tribunales especializados. Conocimiento profundo de la evolución del derecho ambiental en Panamá.</p>
+            </div>
+        </div>
+    </section>
+    
+    <section id="casos" class="cases">
+        <div class="section-header">
+            <div class="section-label">Casos de Éxito</div>
+            <h2>Resultados Comprobados</h2>
+            <p>Destacados casos donde hemos logrado victorias significativas para la protección del medio ambiente</p>
+        </div>
+        
+        <div class="cases-grid">
+            <div class="case-card">
+                <div class="case-image">
+                    🌊
+                </div>
+                <div class="case-content">
+                    <div class="case-tag">VICTORIA JUDICIAL</div>
+                    <h3>Protección de Cuenca Hidrográfica en Coclé</h3>
+                    <p>Logramos detener proyecto minero que amenazaba contaminar fuentes de agua de 15 comunidades. Sentencia estableció precedente sobre prioridad del agua potable sobre intereses extractivos.</p>
+                    <div class="case-stats">
+                        <div class="case-stat">
+                            <strong>15,000</strong>
+                            <span>Personas Beneficiadas</span>
+                        </div>
+                        <div class="case-stat">
+                            <strong>2024</strong>
+                            <span>Año</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="case-card">
+                <div class="case-image">
+                    🌳
+                </div>
+                <div class="case-content">
+                    <div class="case-tag">CASO EMBLEMÁTICO</div>
+                    <h3>Suspensión de Tala Ilegal en Darién</h3>
+                    <p>Representamos a comunidades indígenas logrando sentencia que suspendió actividad maderera ilegal en 50,000 hectáreas de bosque primario. Incluye reparación de daños y restauración ecológica.</p>
+                    <div class="case-stats">
+                        <div class="case-stat">
+                            <strong>50K</strong>
+                            <span>Hectáreas Protegidas</span>
+                        </div>
+                        <div class="case-stat">
+                            <strong>2025</strong>
+                            <span>Año</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="case-card">
+                <div class="case-image">
+                    🏭
+                </div>
+                <div class="case-content">
+                    <div class="case-tag">COMPENSACIÓN</div>
+                    <h3>Demanda por Contaminación Industrial</h3>
+                    <p>Obtuvimos compensación millonaria para comunidades afectadas por emisiones tóxicas de complejo industrial. Empresa obligada a implementar controles ambientales estrictos.</p>
+                    <div class="case-stats">
+                        <div class="case-stat">
+                            <strong>$2.5M</strong>
+                            <span>Compensación</span>
+                        </div>
+                        <div class="case-stat">
+                            <strong>2023</strong>
+                            <span>Año</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+
+    
+    
+    <footer id="contacto">
+        <div class="footer-grid">
+            <div class="footer-about">
+                <h3>Lex Ambiental</h3>
+                <p>Bufete especializado en derecho medioambiental con más de 25 años de experiencia defendiendo el derecho constitucional a un medio ambiente sano. Representamos a comunidades, empresas y organizaciones en todo Panamá.</p>
+                <div class="footer-credentials">
+                    <div class="credential-badge">Colegio Nacional de Abogados</div>
+                    <div class="credential-badge">Especialistas Certificados</div>
+                </div>
+            </div>
+            
+            <div class="footer-links">
+                <h4>Servicios</h4>
+                <ul>
+                    <li><a href="#servicios">Litigios Ambientales</a></li>
+                    <li><a href="#servicios">Cumplimiento Normativo</a></li>
+                    <li><a href="#servicios">Conservación</a></li>
+                    <li><a href="#servicios">Recursos Hídricos</a></li>
+                    <li><a href="#servicios">Cambio Climático</a></li>
+                    <li><a href="#servicios">Derechos Comunitarios</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-links">
+                <h4>Información</h4>
+                <ul>
+                    <li><a href="#">Sobre Nosotros</a></li>
+                    <li><a href="#casos">Casos de Éxito</a></li>
+                    <li><a href="#">Equipo Legal</a></li>
+                    <li><a href="#">Publicaciones</a></li>
+                    <li><a href="#">Prensa</a></li>
+                    <li><a href="#">Carreras</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-links">
+                <h4>Contacto</h4>
+                <div class="footer-contact">
+                    <div class="footer-contact-item">
+                        <span>📧</span>
+                        <span>contacto@lexambiental.pa</span>
+                    </div>
+                    <div class="footer-contact-item">
+                        <span>📞</span>
+                        <span>+507 6XXX-XXXX</span>
+                    </div>
+                    <div class="footer-contact-item">
+                        <span>📍</span>
+                        <span>Calle 50, Edificio Plaza 2000<br>Ciudad de Panamá</span>
+                    </div>
+                    <div class="footer-contact-item">
+                        <span>🕐</span>
+                        <span>Lun-Vie: 8:00 AM - 6:00 PM</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2026 Lex Ambiental - Abogados Especialistas en Derecho Medioambiental. Todos los derechos reservados.</p>
+            <p>Colegio Nacional de Abogados de Panamá | Licencia Profesional | Confidencialidad Garantizada</p>
+        </div>
+    </footer>
+    
+    <script>
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
